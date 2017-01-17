@@ -1,0 +1,44 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:decorate template="/index.xhtml">
+	<ui:define name="centro">
+
+		<h:form>
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" />
+
+			<p:fieldset legend="Cadastrar Produto" style="margin-bottom:20px">
+				<p:panelGrid columns="2">
+
+					<p:outputLabel value="Categoria"/>
+					<p:selectOneMenu id="categoria" 
+									value="#{produtoMbean.categoriaVO.id}" 
+									style="width:125px">
+						<f:selectItem itemLabel="Selecione" itemValue="0" />
+						<f:selectItems value="#{produtoMbean.listaCategoriaVO}"
+							var="categ" itemLabel="#{categ.descricao}" itemValue="#{categ.id}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Descricao"/>
+					<p:inputText value="#{produtoMbean.produto.descricao}"/>
+
+					<p:outputLabel value="Valor Unitário:"/>
+					<p:inputMask value="#{produtoMbean.produto.valor}" />
+
+				</p:panelGrid>
+
+			</p:fieldset>
+			
+			<p:separator/>
+			
+			<p:commandButton value="Salvar" action="#{produtoMbean.salvar}"
+				update="messages" />
+		</h:form>
+	</ui:define>
+</ui:decorate>
+</html>

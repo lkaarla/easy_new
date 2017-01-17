@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Loja de Equipamento</title>
+</h:head>
+	<h:body>
+		<p:layout fullPage="true">
+
+			<p:layoutUnit position="west" size="250">
+
+				<h:form>
+					<p:panelMenu>
+						<p:submenu label="Cliente">
+							<p:menuitem value="Cadastrar" action="#{clienteMbean.chamarTelaCadastro}"
+								icon="ui-icon-disk" />
+							<p:menuitem value="Listar Todos" action="#{clienteMbean.chamarTelaListarTodosClientes}"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
+
+						<p:submenu label="Categoria">
+							<p:menuitem value="Cadastrar" action="#{categoriaMbean.chamarTelaCadastro}"
+								icon="ui-icon-disk" />
+							<p:menuitem value="Listar Todos" action="#{categoriaMbean.chamarTelaListarTodasCategorias}"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
+
+						<p:submenu label="Produto">
+							<p:menuitem value="Cadastrar" action="#{produtoMbean.chamarTelaCadastro}"
+								icon="ui-icon-disk" />
+							<p:menuitem value="Listar Todos" action="#{produtoMbean.chamarTelaListarTodos}"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
+
+						<p:submenu label="Pedido">
+							<p:menuitem value="Fazer Pedido"
+								actionListener="#{menuView.save}" icon="ui-icon-disk" />
+							<p:menuitem value="Atualizar" actionListener="#{menuView.update}"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
+
+					</p:panelMenu>
+				</h:form>
+			</p:layoutUnit>
+			
+			
+			<p:layoutUnit position="center">
+				<ui:insert name="centro">
+					
+				</ui:insert>
+			</p:layoutUnit>
+
+		</p:layout>
+	</h:body>
+</html>
