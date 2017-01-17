@@ -1,0 +1,37 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Login</title>
+	<style>
+	.center{
+		width:300px;
+		height:200px;
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin:-100px 0 0 -150px;
+     }
+	</style>
+</h:head>
+<div class="center">
+<h:form>            
+
+   <h:panelGrid columns="2" cellpadding="5">
+       <h:outputLabel for="username" value="Email:" />
+       <p:inputText id="username" value="#{loginMBean.loginAtual.email}" required="true" label="username" />
+
+       <h:outputLabel for="password" value="Senha:" />
+       <p:password id="password" value="#{loginMBean.loginAtual.senha}" required="true" label="password" />
+
+       <f:facet name="footer">
+           <p:commandButton value="Login" actionListener="#{loginMBean.logar}"/>
+       </f:facet>  
+   </h:panelGrid>
+</h:form>
+</div>
+</html>
