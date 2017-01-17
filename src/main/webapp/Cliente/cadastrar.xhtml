@@ -1,0 +1,60 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Incluir Cliente</title>
+</h:head>
+<h:form>
+	<p:growl id="messages"></p:growl>
+	<p:panelGrid columns="2">
+		<p:outputLabel value="Nome:"></p:outputLabel>
+		<p:inputText value="#{clienteMbean.cliente.nome}"></p:inputText>
+
+		<p:outputLabel value="Cidade:"></p:outputLabel>
+		<p:inputText value="#{clienteMbean.cliente.cidade}"/>
+
+		<p:outputLabel value="Bairo:"></p:outputLabel>
+		<p:inputText value="#{clienteMbean.cliente.bairro}"/>
+
+		<p:outputLabel value="Endereço:"></p:outputLabel>
+		<p:inputText value="#{clienteMbean.cliente.endereco}"></p:inputText>
+		
+		<p:outputLabel value="Complemento"></p:outputLabel>
+		<p:inputText value="#{clienteMbean.cliente.complemento}"></p:inputText>
+	</p:panelGrid>
+
+	<p:dataTable var="cliente" value="#{clienteMbean.listaClienteVO}">
+		<p:column headerText="Id">
+			<h:outputText value="#{cliente.id}" />
+		</p:column>
+
+		<p:column headerText="Nome">
+			<h:outputText value="#{cliente.nome}" />
+		</p:column>
+
+		<p:column headerText="Cidade">
+			<h:outputText value="#{cliente.cidade}" />
+		</p:column>
+
+		<p:column headerText="Bairro">
+			<h:outputText value="#{cliente.bairro}" />
+		</p:column>
+		
+		<p:column headerText="Endereço">
+			<h:outputText value="#{cliente.endereco}" />
+		</p:column>
+		
+		<p:column headerText="Complemento">
+			<h:outputText value="#{cliente.complemento}" />
+		</p:column>
+	</p:dataTable>
+
+	<p:commandButton value="Salvar" action="#{clienteMbean.salvar}" update="messages"></p:commandButton>
+		
+		
+</h:form>
+</html>
