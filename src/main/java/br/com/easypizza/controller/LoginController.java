@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import br.com.easypizza.exception.EasyPizzaDataBaseException;
+import br.com.easypizza.exception.EasyPizzaServiceException;
 import br.com.easypizza.service.LoginService;
 import br.com.easypizza.vo.LoginVO;
 
@@ -26,7 +28,7 @@ public class LoginController {
 		loginAtual = new LoginVO();
 	}
 	
-	public String logar(){
+	public String logar() throws EasyPizzaServiceException, EasyPizzaDataBaseException {
 		loginService.logar(loginAtual);
 		return "";
 	}

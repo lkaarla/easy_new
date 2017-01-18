@@ -135,6 +135,14 @@ public class LoginDAOImpl implements LoginDAO{
 		Login login = query.getSingleResult();
 		return login;
 	}
+
+	@Override
+	public Login buscarSenhaPorSenhaCad(String senha) {
+		TypedQuery<Login> query = em.createQuery("SELECT e FROM Login e Where e.senha =:senha", Login.class);
+		query.setParameter("senha", senha);
+		Login senhax = query.getSingleResult();
+		return senhax;
+	}
 	
 	
 }

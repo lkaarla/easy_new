@@ -16,18 +16,21 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_produto")
-	private Integer idProduto;
+	private int idProduto;
 	
 	private BigDecimal preco;
 	
 	@Column(name = "desc_produto")
 	private String descricao;
 	
-	
-	public Integer getIdProduto() {
+
+
+	public int getIdProduto() {
 		return idProduto;
 	}
-
+	public void setIdProduto(int idProduto) {
+		this.idProduto = idProduto;
+	}
 	public BigDecimal getPreco() {
 		return preco;
 	}

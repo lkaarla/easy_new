@@ -16,7 +16,7 @@ public class Login {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_login")
-	private Integer idLogin;
+	private int idLogin;
     
 	private String login;
 	private String senha;
@@ -26,7 +26,7 @@ public class Login {
 	@JoinColumn(name="id_tipo_usuario")
 	private TipoUsuario tipoUsuario;
 	
-	public Integer getIdLogin() {
+	public int getIdLogin() {
 		return idLogin;
 	}
 	public void setIdLogin(Integer idLogin) {

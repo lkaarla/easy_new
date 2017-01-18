@@ -15,20 +15,20 @@
 			<p:fieldset legend="Cadastrar Produto" style="margin-bottom:20px">
 				<p:panelGrid columns="2">
 
-					<p:outputLabel value="Categoria"/>
-					<p:selectOneMenu id="categoria" 
-									value="#{produtoMbean.categoriaVO.id}" 
+					<p:outputLabel value="PedidoItem"/>
+					<p:selectOneMenu id="pedidoItem" 
+									value="#{MBProduto.PedidoItemVO.id}" 
 									style="width:125px">
 						<f:selectItem itemLabel="Selecione" itemValue="0" />
-						<f:selectItems value="#{produtoMbean.listaCategoriaVO}"
-							var="categ" itemLabel="#{categ.descricao}" itemValue="#{categ.id}" />
+						<f:selectItems value="#{MBProduto.listaPedidoItemVO}"
+							var="categ" itemLabel="#{pedidoItem.descricao}" itemValue="#{pedidoItem.id}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Descricao"/>
-					<p:inputText value="#{produtoMbean.produto.descricao}"/>
+					<p:inputText value="#{MBProduto.produto.descricao}"/>
 
-					<p:outputLabel value="Valor Unitário:"/>
-					<p:inputMask value="#{produtoMbean.produto.valor}" />
+					<p:outputLabel value="Valor:"/>
+					<p:inputMask value="#{MBProduto.produto.valor}" />
 
 				</p:panelGrid>
 
@@ -36,7 +36,7 @@
 			
 			<p:separator/>
 			
-			<p:commandButton value="Salvar" action="#{produtoMbean.salvar}"
+			<p:commandButton value="Salvar" action="#{MBProduto.salvar}"
 				update="messages" />
 		</h:form>
 	</ui:define>

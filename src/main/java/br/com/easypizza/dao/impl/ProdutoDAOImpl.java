@@ -1,5 +1,7 @@
 package br.com.easypizza.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -102,6 +104,14 @@ public class ProdutoDAOImpl implements ProdutoDAO{
 	public Produto buscarProdutoPorId(int id) {
 		Produto produto = em.find(Produto.class, id);
 		return produto;
+	}
+
+	@Override
+	public List<Produto> listarTodosProdutos() throws EasyPizzaDataBaseException {
+		Query query = em.createQuery("string pro from Produto pro");
+		List<Produto> listarProduto = query.getResultList();
+		em.close();
+		return listarProduto;
 	}
 
 }

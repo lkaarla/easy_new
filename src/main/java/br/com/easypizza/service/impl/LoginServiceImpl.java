@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.easypizza.dao.LoginDAO;
 import br.com.easypizza.entidade.Login;
+import br.com.easypizza.exception.EasyPizzaDataBaseException;
+import br.com.easypizza.exception.EasyPizzaServiceException;
 import br.com.easypizza.service.LoginService;
 import  br.com.easypizza.vo.LoginVO;
 
@@ -16,11 +18,12 @@ public class LoginServiceImpl implements LoginService{
 	
 	
 	@Override
-	public void logar(LoginVO loginVO) {
+	public void logar(LoginVO loginVO) throws EasyPizzaServiceException, EasyPizzaDataBaseException{ 
 		Login loginAtual = loginDao.buscarLoginPorEmail(loginVO.getEmail());
-		if(loginAtual != null){
-			System.out.println("Login realizado com sucesso!"); 
+		Login senhaLoginAtual = loginDao.buscarSenhaPorSenhaCad(loginVO.getSenha());
+		if(loginAtual != null && senhaLoginAtual != null){
+				System.out.println("Login realizado com sucesso!"); 
 		}
 	}
-
+	
 }

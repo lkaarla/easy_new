@@ -12,7 +12,7 @@
 			<p:messages id="messages" showDetail="true" autoUpdate="true"
 				closable="true" />
 
-			<p:dataTable var="prod" value="#{produtoMbean.listaProdutoVO}"
+			<p:dataTable var="prod" value="#{MBProduto.listaProdutoVO}"
 				rows="7" paginator="true"
 				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} 
                                                  {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -36,7 +36,7 @@
 				<p:column headerText="Ações">
 
 					<p:commandButton icon="ui-icon-trash" title="Excluir Registro"
-						ajax="true" actionListener="#{produtoMbean.excluir(prod)}"
+						ajax="true" actionListener="#{MBProduto.excluir(prod)}"
 						update="@form" />
 
 				</p:column>

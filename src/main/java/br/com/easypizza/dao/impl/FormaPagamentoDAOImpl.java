@@ -27,7 +27,7 @@ public class FormaPagamentoDAOImpl implements FormaPagamentoDAO {
 			}catch(Exception e){
 				//Caso ocorra alguma falha desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel inserir o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel inserir a forma de pagamento na base de dados.", e);
 			}finally{
 				//Encerra a utilização do entity manager e fecha a conexão
 				em.close();
@@ -51,7 +51,7 @@ public class FormaPagamentoDAOImpl implements FormaPagamentoDAO {
 			}catch(Exception e){
 				//Desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel deletar o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel deletar a forma de pagamento na base de dados.", e);
 			}finally{
 				em.close();
 			}
@@ -72,7 +72,7 @@ public class FormaPagamentoDAOImpl implements FormaPagamentoDAO {
 			}catch(Exception e){
 				//Caso ocorra alguma falha desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel deletar o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel deletar a forma de pagamento na base de dados.", e);
 			}finally{
 				//Encerra a utilização do entity manager e fecha a conexão
 				em.close();
@@ -93,7 +93,7 @@ public class FormaPagamentoDAOImpl implements FormaPagamentoDAO {
 			}catch(Exception e){
 				//Caso ocorra alguma falha desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel alterar o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel alterar  a forma de pagamento na base de dados.", e);
 			}finally{
 				//Encerra a utilização do entity manager e fecha a conexão
 				em.close();

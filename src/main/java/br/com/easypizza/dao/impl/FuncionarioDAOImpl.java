@@ -1,5 +1,7 @@
 package br.com.easypizza.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -28,7 +30,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 			}catch(Exception e){
 				//Caso ocorra alguma falha desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel inserir o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel inserir o funcionário na base de dados.", e);
 			}finally{
 				//Encerra a utilização do entity manager e fecha a conexão
 				em.close();
@@ -36,14 +38,14 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 	}
 
 	@Override
-	public void excluirPorId(int idFuncionario) throws EasyPizzaDataBaseException {
+	public void excluirPorMatricula(int matricula) throws EasyPizzaDataBaseException {
 		try{
 			//Inicia a transação com o banco	
 			em.getTransaction().begin();
 			
 			//Monta a query a ser executa pelo banco
 			Query query = em.createQuery("DELETE FROM Funcionario e WHERE e.idFuncionario = :id");
-			query.setParameter("id", idFuncionario);
+			query.setParameter("id", matricula);
 			query.executeUpdate();
 			
 			//Se der tudo certo, comita a transação
@@ -51,7 +53,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 			}catch(Exception e){
 				//Desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel deletar o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel deletar o funcionário na base de dados.", e);
 			}finally{
 				em.close();
 			}
@@ -71,7 +73,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 			}catch(Exception e){
 				//Caso ocorra alguma falha desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel deletar o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel deletar o funcionário na base de dados.", e);
 			}finally{
 				//Encerra a utilização do entity manager e fecha a conexão
 				em.close();
@@ -92,7 +94,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 			}catch(Exception e){
 				//Caso ocorra alguma falha desfaz a transação
 				em.getTransaction().rollback();
-				throw new EasyPizzaDataBaseException("Não foi possivel alterar o login na base de dados.", e);
+				throw new EasyPizzaDataBaseException("Não foi possivel alterar o funcionário na base de dados.", e);
 			}finally{
 				//Encerra a utilização do entity manager e fecha a conexão
 				em.close();
@@ -100,8 +102,8 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 	}
 
 	@Override
-	public Funcionario buscarFuncionarioPorId(int id) {
-		Funcionario funcionario = em.find(Funcionario.class, id);
+	public Funcionario buscarFuncionarioPorMatricula(int matricula) {
+		Funcionario funcionario = em.find(Funcionario.class, matricula);
 		return funcionario;
 	}
 
@@ -112,6 +114,15 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 		query.setParameter("nome", nome);
 		Funcionario funcionario = query.getSingleResult();
 		return funcionario;
+	}
+
+	@Override
+	public List<Funcionario> listarTodosFuncionarios() throws EasyPizzaDataBaseException {
+		Query query = em.createQuery("Select f from Funcionario f");
+		List<Funcionario> listarFuncionario = query.getResultList();
+		em.close();
+		return listarFuncionario;
+		
 	}
 
 	

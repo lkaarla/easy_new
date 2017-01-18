@@ -10,6 +10,7 @@ public interface LoginDAO {
 	public void excluir (Login login) throws EasyPizzaDataBaseException;
 	public void alterar(Login login) throws EasyPizzaDataBaseException;
 	public Login buscarLoginPorId(int id);
-	public Login buscarLoginPorEmail(String email); 
+	public Login buscarLoginPorEmail(String email);
+	public Login buscarSenhaPorSenhaCad(String senha);
 
 }

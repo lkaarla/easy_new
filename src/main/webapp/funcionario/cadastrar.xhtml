@@ -6,75 +6,75 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<script name="jquery/jquery.js" library="primefaces"></script>
-	<title>Incluir Cliente</title>
+	<title>Incluir Funcionários</title>
 </h:head>
 <h:form>
 	<p:growl id="messages"></p:growl>
 	<p:panelGrid columns="2">
 		<p:outputLabel value="Nome:"></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.nome}"></p:inputText>
+		<p:inputText value="#{MBFuncionario.cliente.nome}"></p:inputText>
 
 		<p:outputLabel value="Cidade:"></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.cidade}"/>
+		<p:inputText value="#{MBFuncionario.cliente.cidade}"/>
 
 		<p:outputLabel value="Bairo:"></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.bairro}"/>
+		<p:inputText value="#{MBFuncionario.cliente.bairro}"/>
 
 		<p:outputLabel value="Endereço:"></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.endereco}"></p:inputText>
+		<p:inputText value="#{MBFuncionario.cliente.endereco}"></p:inputText>
 		
 		<p:outputLabel value="Complemento"></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.complemento}"></p:inputText>
+		<p:inputText value="#{MBFuncionario.cliente.complemento}"></p:inputText>
 		
 		<p:outputLabel value="Contato 1:"></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.contatoUm}"></p:inputText>
+		<p:inputText value="#{MBFuncionario.cliente.contatoUm}"></p:inputText>
 		
 		<p:outputLabel value="Contato 2:"></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.contatoDois}"></p:inputText>
+		<p:inputText value="#{MBFuncionario.cliente.contatoDois}"></p:inputText>
 		
 		<p:outputLabel value="Email: "></p:outputLabel>
-		<p:inputText value="#{MBCliente.cliente.email}"></p:inputText>
+		<p:inputText value="#{MBFuncionario.cliente.email}"></p:inputText>
 	</p:panelGrid>
 
-	<p:dataTable var="cliente" value="#{MBCliente.listaClienteVO}">
+	<p:dataTable var="cliente" value="#{MBFuncionario.listaClienteVO}">
 		<p:column headerText="Id">
-			<h:outputText value="#{cliente.id}" />
+			<h:outputText value="#{funcionario.id}" />
 		</p:column>
 
 		<p:column headerText="Nome">
-			<h:outputText value="#{cliente.nome}" />
+			<h:outputText value="#{funcionario.nome}" />
 		</p:column>
 
 		<p:column headerText="Cidade">
-			<h:outputText value="#{cliente.cidade}" />
+			<h:outputText value="#{funcionario.cidade}" />
 		</p:column>
 
 		<p:column headerText="Bairro">
-			<h:outputText value="#{cliente.bairro}" />
+			<h:outputText value="#{funcionario.bairro}" />
 		</p:column>
 		
 		<p:column headerText="Endereço">
-			<h:outputText value="#{cliente.endereco}" />
+			<h:outputText value="#{funcionario.endereco}" />
 		</p:column>
 		
 		<p:column headerText="Complemento">
-			<h:outputText value="#{cliente.complemento}" />
+			<h:outputText value="#{funcionario.complemento}" />
 		</p:column>
 		
 		<p:column headerText="Contato 1:">
-			<h:outputText value="#{cliente.contatoUm}" />
+			<h:outputText value="#{funcionario.contatoUm}" />
 		</p:column>
 		
 		<p:column headerText="Contato 2:">
-			<h:outputText value="#{cliente.contatoDois}" />
+			<h:outputText value="#{funcionario.contatoDois}" />
 		</p:column>
 		
 		<p:column headerText="Email">
-			<h:outputText value="#{cliente.email}" />
+			<h:outputText value="#{funcionario.email}" />
 		</p:column>
 	</p:dataTable>
 
-	<p:commandButton value="Salvar" action="#{MBCliente.salvar}" update="messages"></p:commandButton>
+	<p:commandButton value="Salvar" action="#{MBFuncionario.salvar}" update="messages"></p:commandButton>
 		
 		
 </h:form>

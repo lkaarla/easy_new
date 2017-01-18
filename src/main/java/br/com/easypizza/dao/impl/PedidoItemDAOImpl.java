@@ -1,6 +1,9 @@
 package br.com.easypizza.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -84,6 +87,13 @@ public class PedidoItemDAOImpl implements PedidoItemDAO {
 	public PedidoItem buscarPedidoPorId(int idPedidoItem) {
 		PedidoItem pedidoItem = em.find(PedidoItem.class, idPedidoItem);
 		return pedidoItem;
+	}
+
+	@Override
+	public List<PedidoItem> listarTodosPedidoItem() throws EasyPizzaDataBaseException {
+		Query query = em.createQuery("select pe from PedidoItem pe");
+		List<PedidoItem> listarPedidoItem = query.getResultList();
+		return listarPedidoItem;
 	}
 
 }

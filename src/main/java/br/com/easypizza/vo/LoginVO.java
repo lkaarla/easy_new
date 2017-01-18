@@ -2,16 +2,10 @@ package br.com.easypizza.vo;
 
 public class LoginVO {
 	
-	private int id;
-	private String email;
+	private String login;
 	private String senha;
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	private String email;
+
 	public String getEmail() {
 		return email;
 	}
@@ -24,6 +18,13 @@ public class LoginVO {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
 	
 	
 	
